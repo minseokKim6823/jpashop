@@ -1,7 +1,7 @@
 package jpabook.jpashop.domain;
 
 import jakarta.persistence.*;
-import jakarta.persistence.criteria.Order;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -24,4 +24,6 @@ public class Member {
 
     @OneToMany(mappedBy = "member")
     private List<Order> orders =new ArrayList<>();
+
+
 }
