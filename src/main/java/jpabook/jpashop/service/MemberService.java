@@ -26,7 +26,6 @@ public class MemberService {
      */
     @Transactional//쓰기 전용에는 readOnly = true 추가 하면 안됨 값이 바뀌지 않는다
     public Long join(Member member){
-
         validateDuplicateMember(member); //중복 회원 검증
         memberRepository.save(member);
         return member.getId();
@@ -34,10 +33,10 @@ public class MemberService {
 
     // 중복회원 검증
     private void validateDuplicateMember(Member member) {
-        List<Member> findMembers = MemberRepository.findByName(member.getName()); 
+        List<Member> findMembers = memberRepository.findByName(member.getName());
         //실무에서는 동시에 회원 가입하는 경우를 대비해 unique 제약조건으로 잡아주는것을 권장
         if (!findMembers.isEmpty()) {
-            throw new IllegalStateException("이미 존재한는 회원입니다.");
+            throw new IllegalStateException("이미 존재하는 회원입니다.");
         }
     }
     //회원 전체 조회

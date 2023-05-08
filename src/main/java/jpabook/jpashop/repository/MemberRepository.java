@@ -11,6 +11,7 @@ import java.util.List;
 @Repository
 @RequiredArgsConstructor //injection 해줌
 public class MemberRepository {
+
     private final EntityManager em;
     //spring이 생성한 entity manager를 주입 받음 원래라면 entity manager factory에서 꺼내 써야하는데 따로 그럴 필요가없다
     //만일 entity manager factory를 주입 받고 싶다면 @PersistenceUnit /n private EntityManagerFactory emf;
