@@ -2,6 +2,8 @@ package jpabook.jpashop.service;
 
 import jpabook.jpashop.domain.Member;
 import jpabook.jpashop.repository.MemberRepository;
+import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -11,16 +13,13 @@ import java.util.List;
 @Service
 @Transactional(readOnly = true)//jakarta가 제공하는것 보다 spring이 제공하는 기능이 더 많다
 //읽기 전용에는 readOnly = true 추가 해주자
-
+//@AllArgsConstructor public MemberService~~~안써도됨
+@RequiredArgsConstructor // private final로 생성자를 만들어준다.
 public class MemberService {
 
-    // @Autowired  Spring bean에 등록 되어 있는 memberRepository를 injection
-    private MemberRepository memberRepository;
+    private final MemberRepository memberRepository;
 
-    @Autowired
-    public MemberService(MemberRepository memberRepository){
-        this.memberRepository=memberRepository;
-    }
+    //@Autowired 이 없어도 자동으로 memberRepository를 injection 해줌
 
     /**
      * 회원 가입
