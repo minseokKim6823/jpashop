@@ -11,7 +11,8 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Service
-@Transactional(readOnly = true)//jakarta가 제공하는것 보다 spring이 제공하는 기능이 더 많다
+@Transactional(readOnly = true)
+//jakarta가 제공하는것 보다 spring이 제공하는 기능이 더 많다
 //읽기 전용에는 readOnly = true 추가 해주자
 //@AllArgsConstructor public MemberService~~~안써도됨
 @RequiredArgsConstructor // private final로 생성자를 만들어준다.
