@@ -1,7 +1,9 @@
 package jpabook.jpashop.domain;
 
 import jakarta.persistence.*;
+import lombok.AccessLevel;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.aspectj.weaver.ast.Or;
 
@@ -13,6 +15,7 @@ import java.util.List;
 @Table(name="orders")
 @Getter @Setter
 @Entity
+@NoArgsConstructor(access= AccessLevel.PROTECTED)
 
 
 public class Order {
@@ -73,7 +76,6 @@ public class Order {
         if(delivery.getStatus()==DeliveryStatus.COMP){
             throw new IllegalStateException("이미 배송완료된 상품은 취소가 불가능합니다.");
         }
-
         this.setStatus(OrderStatus.CANCEL);
         for(OrderItem orderItem : orderItems){
             orderItem.calcel();
