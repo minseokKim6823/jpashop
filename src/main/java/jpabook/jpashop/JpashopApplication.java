@@ -13,6 +13,7 @@ public class JpashopApplication {
 	}
 	@Bean
 	Hibernate5JakartaModule hibernate5Module() {
-		return new Hibernate5JakartaModule();
+		Hibernate5JakartaModule hibernate5JakartaModule=new Hibernate5JakartaModule();
+		return hibernate5JakartaModule;
 	}
 }

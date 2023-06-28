@@ -3,7 +3,6 @@ package jpabook.jpashop.repository;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
 import jakarta.persistence.criteria.*;
-import jpabook.jpashop.domain.Member;
 import jpabook.jpashop.domain.Order;
 import lombok.RequiredArgsConstructor;
 
@@ -93,9 +92,10 @@ public class OrderRepository {
     public List<Order> findAllWithMemberDelivery() {
         return em.createQuery(
                 "select o from Order o"+
-                        " join fetch o.member m"+
-                        " join fetch o.delivery d",Order.class//join 앞 띄어쓰기
-        ).getResultList();
-    }
-}
+                        " join fetch o.member m"+ // Order에 Member와 delivery가 LAZY와 관계없이 무시하고 다 가져옴
+                        " join fetch o.delivery d",Order.class)//join 앞 띄어쓰기
+                .getResultList();
+    }//재사용성 높음
 
+
+}

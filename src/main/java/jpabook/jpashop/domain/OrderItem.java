@@ -24,7 +24,7 @@ public class OrderItem {
     @JoinColumn(name="item_id")
     private Item item;
 
-    @JsonIgnore
+    @JsonIgnore //양방향 관계이므로 JsonIgnore을 붙여줌
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="order_id")
     private Order order;    //order가 연관 관계주인
