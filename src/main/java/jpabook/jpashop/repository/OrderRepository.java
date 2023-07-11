@@ -100,7 +100,7 @@ public class OrderRepository {
 
     public List<Order> findAllWithItem() {
         return em.createQuery(
-                "select o from Order o"+
+                "select distinct o from Order o"+
                         /* distinct 키워드 기능 1.db에 distinct 키워드를 날려준다. 2.(Order)엔티티가 중복인 경우 중복을 걸러서 컬렉션에 담아준다*/
                         " join fetch o.member m" +
                         " join fetch o.delivery d" +
@@ -108,6 +108,16 @@ public class OrderRepository {
                         " join fetch oi.item i", Order.class)
                 .setFirstResult(1)
                 .setMaxResults(100)
+                .getResultList();
+    }
+
+    public List<Order> findAllWithMemberDelivery(int offset, int limit) {
+        return em.createQuery(
+                "select o from Order o"+
+                        " join fetch o.member m"+
+                        " join fetch o.delivery d",Order.class)
+                .setFirstResult(offset)
+                .setMaxResults(limit)
                 .getResultList();
     }
 }
