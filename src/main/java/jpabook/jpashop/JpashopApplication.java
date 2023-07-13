@@ -1,6 +1,6 @@
 package jpabook.jpashop;
 
-import com.fasterxml.jackson.datatype.hibernate5.jakarta.Hibernate5JakartaModule;
+import com.fasterxml.jackson.datatype.hibernate5.Hibernate5Module;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
@@ -12,8 +12,8 @@ public class JpashopApplication {
 		SpringApplication.run(JpashopApplication.class, args);
 	}
 	@Bean
-	Hibernate5JakartaModule hibernate5Module() {
-		Hibernate5JakartaModule hibernate5JakartaModule=new Hibernate5JakartaModule();
+	Hibernate5Module hibernate5Module() {
+		Hibernate5Module hibernate5JakartaModule=new Hibernate5Module();
 		return hibernate5JakartaModule;
 	}
 }

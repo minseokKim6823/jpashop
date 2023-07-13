@@ -1,8 +1,8 @@
 package jpabook.jpashop.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import jakarta.persistence.*;
-import jakarta.persistence.Id;
+import javax.persistence.*;
+import javax.persistence.Id;
 
 import jpabook.jpashop.domain.item.Item;
 import lombok.AccessLevel;
@@ -10,11 +10,13 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.io.Serializable;
+
 @Entity
 @Table(name ="order_item")
 @Getter @Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class OrderItem {
+public class OrderItem implements Serializable {
 
     @Id @GeneratedValue
     @Column(name = "order_item_id")
