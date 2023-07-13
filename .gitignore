@@ -27,7 +27,6 @@ out/
 !**/src/main/**/out/
 !**/src/test/**/out/
 build
-src/main/java/jpabook/jpashop
 build.gradle
 
 ### NetBeans ###
