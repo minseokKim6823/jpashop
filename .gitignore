@@ -27,7 +27,7 @@ out/
 !**/src/main/**/out/
 !**/src/test/**/out/
 build
-src/main/java/jpabook/jpashop/repository/OrderRepository.java
+src/main/java/jpabook/jpashop
 
 ### NetBeans ###
 /nbproject/private/
